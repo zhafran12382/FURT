@@ -1,0 +1,227 @@
+# ========================================
+# 🆕 FURT Unique Features Demo
+# ========================================
+# Demo fitur unik FURT yang tidak ada di bahasa lain
+
+show "🚀 FURT Unique Features Demo"
+show "==========================="
+show ""
+
+# ========================================
+# 🔄 ALWAYS LOOP - Pengganti while True
+# ========================================
+
+show "✨ ALWAYS LOOP (Infinite Loop FURT Style):"
+show "Instead of 'while True:', FURT uses 'always:'"
+show ""
+
+# Demo always loop (commented out to prevent infinite)
+# always:
+#     show "This runs forever with FURT style!"
+#     show "No more 'while True' needed!"
+
+show "Example syntax:"
+show "always:"
+show "    show 'Running forever!'"
+show "    do_something()"
+show ""
+
+# ========================================
+# 💬 NO PRINT FUNCTION - Only FURT Functions
+# ========================================
+
+show "✨ FURT OUTPUT FUNCTIONS (No Generic Print):"
+show "FURT doesn't use generic 'print' - it has unique output functions:"
+show ""
+
+# FURT-specific output functions
+show "This is 'show' function - main FURT output"
+display "This is 'display' function - alternative output"
+tampilkan "This is 'tampilkan' function - Indonesian output"
+
+show ""
+show "❌ No 'print()' function in FURT!"
+show "✅ Use 'show', 'display', or 'tampilkan' instead"
+show ""
+
+# ========================================
+# 🌟 NATURAL LANGUAGE VARIABLES
+# ========================================
+
+show "✨ NATURAL LANGUAGE ASSIGNMENTS:"
+
+# FURT unique syntax
+player_name becomes "Hero"
+player_level starts at 1
+max_health stays at 100
+
+show "player_name becomes 'Hero'     →", player_name
+show "player_level starts at 1       →", player_level  
+show "max_health stays at 100        →", max_health
+show ""
+
+# ========================================
+# 📈 NATURAL MATH OPERATIONS
+# ========================================
+
+show "✨ NATURAL MATH OPERATIONS:"
+
+score starts at 0
+show "Initial score:", score
+
+score increases by 25
+show "After 'score increases by 25':", score
+
+score decreases by 10  
+show "After 'score decreases by 10':", score
+
+lives starts at 3
+lives decreases by 1
+show "lives decreases by 1:", lives
+show ""
+
+# ========================================
+# ⚖️ NATURAL CONDITIONS
+# ========================================
+
+show "✨ NATURAL LANGUAGE CONDITIONS:"
+
+age = 25
+score = 85
+
+when age is at least 18:
+    show "✓ Age check: You are an adult!"
+
+when score is more than 80:
+    show "✓ Score check: Excellent performance!"
+
+unless lives is 0:
+    show "✓ Lives check: Still alive!"
+
+show ""
+
+# ========================================
+# 🔁 NATURAL LOOPS
+# ========================================
+
+show "✨ NATURAL LANGUAGE LOOPS:"
+
+show "repeat 3 times:"
+repeat 3 times:
+    show "  → FURT is awesome!"
+
+show ""
+show "count from 1 to 5:"
+count from 1 to 5:
+    show "  → Counting:", counter
+
+show ""
+
+# ========================================
+# 🎨 UNIQUE GRAPHICS SYNTAX
+# ========================================
+
+show "✨ UNIQUE GRAPHICS SYNTAX:"
+show "FURT has natural language graphics commands:"
+show ""
+show "use graphics"
+show "make_window 800 600"
+show "set background to light blue"
+show "draw_circle 400 300 50"
+show ""
+
+# Test graphics if available
+use graphics
+make_window 400 300
+set background to light green
+draw_circle 200 150 40
+set_color "red"
+draw_rectangle 150 100 100 50
+
+show "✓ Graphics window created with natural syntax!"
+show ""
+
+# ========================================
+# 🔧 FUNCTION DEFINITION STYLES
+# ========================================
+
+show "✨ NATURAL FUNCTION DEFINITIONS:"
+
+# FURT natural style
+to greet_user user_name:
+    show "Hello,", user_name + "!"
+    show "Welcome to FURT!"
+
+to calculate_damage weapon_bonus:
+    base_damage = 10
+    weapon_multiplier = weapon_bonus * 2
+    give back base_damage + weapon_multiplier
+
+# Call functions
+greet_user("Alice")
+damage = calculate_damage(5)
+show "Calculated damage:", damage
+show ""
+
+# ========================================
+# 🎯 UNIQUE FEATURES SUMMARY
+# ========================================
+
+show "🎯 FURT UNIQUE FEATURES SUMMARY:"
+show "================================"
+show ""
+show "1. 🔄 'always:' instead of 'while True:'"
+show "2. 💬 'show/display/tampilkan' instead of 'print'"
+show "3. 🌟 'becomes/starts at/stays' for assignments"
+show "4. 📈 'increases by/decreases by' for math"
+show "5. ⚖️ 'when X is at least Y' for conditions"
+show "6. 🔁 'repeat N times' for loops"
+show "7. 🎨 Natural graphics commands"
+show "8. 🔧 'to X:' for function definitions"
+show ""
+
+show "These features make FURT unique and beginner-friendly!"
+show "No other programming language has this combination!"
+show ""
+
+# ========================================
+# 💡 LEARNING COMPARISON
+# ========================================
+
+show "💡 COMPARISON WITH OTHER LANGUAGES:"
+show "====================================="
+show ""
+show "Python:     while True:"
+show "FURT:       always:"
+show ""
+show "Python:     print('Hello')"
+show "FURT:       show 'Hello'"
+show ""
+show "Python:     x = 10"
+show "FURT:       x becomes 10"
+show ""
+show "Python:     x += 5"
+show "FURT:       x increases by 5"
+show ""
+show "Python:     if age >= 18:"
+show "FURT:       when age is at least 18:"
+show ""
+
+show "FURT makes programming feel like natural conversation!"
+show ""
+
+# ========================================
+# 🎉 CONCLUSION
+# ========================================
+
+show "🎉 CONCLUSION:"
+show "=============="
+show ""
+show "FURT is not just another programming language."
+show "It's designed to be the most natural and intuitive"
+show "programming experience for beginners."
+show ""
+show "Every syntax choice is made to reduce the barrier"
+show "between human thinking and code writing."
+show ""
+show "Welcome to the future of beginner programming! 🚀"

@@ -1,0 +1,267 @@
+# ========================================
+# 🎮 FURT Game Examples
+# ========================================
+
+use game
+use math
+
+show "=== FURT Game Module Examples ==="
+
+# ========================================
+# Basic Game Setup
+# ========================================
+
+# Initialize game
+game_width = 800
+game_height = 600
+init_game(game_width, game_height)
+
+# ========================================
+# Sprite Creation
+# ========================================
+
+# Create game objects
+player = create_sprite("player.png")
+enemy = create_sprite("enemy.png") 
+coin = create_sprite("coin.png")
+
+show "Game objects created!"
+
+# ========================================
+# Position and Movement
+# ========================================
+
+# Set initial positions
+set_position(player, 100, 300)
+set_position(enemy, 700, 300)
+set_position(coin, 400, 200)
+
+# Move sprites
+move_sprite(player, 150, 300)
+move_towards(enemy, player, 2)  # Speed 2
+
+show "Sprites positioned and moving!"
+
+# ========================================
+# Game Variables
+# ========================================
+
+player_health = 100
+player_score = 0
+game_time = 0
+lives = 3
+
+show "Player health:", player_health
+show "Score:", player_score
+show "Lives:", lives
+
+# ========================================
+# Collision Detection
+# ========================================
+
+# Check collisions
+when collides(player, coin):
+    player_score increases by 10
+    hide_sprite(coin)
+    show "Coin collected! Score:", player_score
+
+when collides(player, enemy):
+    player_health decreases by 10
+    show "Hit by enemy! Health:", player_health
+
+# ========================================
+# Input Handling
+# ========================================
+
+# Handle keyboard input
+when key_pressed("UP"):
+    move_sprite(player, get_x(player), get_y(player) - 5)
+
+when key_pressed("DOWN"):
+    move_sprite(player, get_x(player), get_y(player) + 5)
+
+when key_pressed("LEFT"):
+    move_sprite(player, get_x(player) - 5, get_y(player))
+
+when key_pressed("RIGHT"):
+    move_sprite(player, get_x(player) + 5, get_y(player))
+
+when key_pressed("SPACE"):
+    shoot_bullet(player)
+
+# ========================================
+# Game Logic
+# ========================================
+
+# Health system
+when player_health <= 0:
+    lives decreases by 1
+    player_health = 100
+    show "Life lost! Lives remaining:", lives
+
+when lives <= 0:
+    show "Game Over!"
+    restart_game()
+
+# Scoring system
+when player_score >= 100:
+    show "Level complete!"
+    next_level()
+
+# ========================================
+# Enemy AI
+# ========================================
+
+# Simple AI behaviors
+enemy_speed = 1
+
+when distance_to(enemy, player) > 200:
+    move_towards(enemy, player, enemy_speed)
+
+when distance_to(enemy, player) < 50:
+    enemy_speed = 3  # Speed up when close
+
+# ========================================
+# Power-ups and Items
+# ========================================
+
+# Create power-ups
+speed_boost = create_sprite("speed_boost.png")
+health_pack = create_sprite("health_pack.png")
+
+when collides(player, speed_boost):
+    player_speed increases by 2
+    hide_sprite(speed_boost)
+    show "Speed boost activated!"
+
+when collides(player, health_pack):
+    player_health increases by 25
+    hide_sprite(health_pack)
+    show "Health restored!"
+
+# ========================================
+# Game State Management
+# ========================================
+
+game_state = "playing"  # playing, paused, game_over
+
+when key_pressed("P"):
+    when game_state is "playing":
+        game_state = "paused"
+        pause_game()
+    when game_state is "paused":
+        game_state = "playing"
+        resume_game()
+
+# ========================================
+# Animations
+# ========================================
+
+# Animate sprites
+animate_sprite(player, "walk", 0.5)  # Walk animation, 0.5 speed
+animate_sprite(enemy, "idle", 1.0)
+
+# Particle effects
+create_explosion(get_x(enemy), get_y(enemy))
+create_particles("sparkle", get_x(coin), get_y(coin))
+
+# ========================================
+# Sound Integration
+# ========================================
+
+# Game sounds
+when collides(player, coin):
+    play_sound("coin_collect")
+
+when collides(player, enemy):
+    play_sound("hit")
+
+when player_health <= 0:
+    play_sound("death")
+
+# Background music
+play_background_music("game_theme.mp3")
+
+# ========================================
+# HUD and UI
+# ========================================
+
+# Display game information
+draw_text("Health: " + str(player_health), 10, 10)
+draw_text("Score: " + str(player_score), 10, 30)
+draw_text("Lives: " + str(lives), 10, 50)
+
+# Mini-map
+draw_mini_map(player, enemy, 650, 450, 140, 100)
+
+# ========================================
+# Simple Game Loop Example
+# ========================================
+
+to game_loop:
+    repeat forever:
+        # Update
+        update_sprites()
+        check_collisions()
+        update_ai()
+        
+        # Draw
+        clear_screen()
+        draw_sprites()
+        draw_hud()
+        
+        # Check game state
+        when player_health <= 0:
+            break
+        
+        wait_frame()  # 60 FPS
+
+# ========================================
+# Mini Game Examples
+# ========================================
+
+# Collect the coins game
+to coin_collector_game:
+    coins_collected = 0
+    time_left = 30
+    
+    repeat 10 times:
+        x = random_range(50, 750)
+        y = random_range(50, 550)
+        create_coin(x, y)
+    
+    while time_left > 0:
+        move_player_with_keys()
+        check_coin_collection()
+        
+        time_left decreases by 1
+        wait 1 second
+    
+    show "Game Over! Coins collected:", coins_collected
+
+# Simple platformer
+to platformer_game:
+    gravity = 0.5
+    jump_power = 10
+    player_velocity_y = 0
+    
+    repeat forever:
+        # Gravity
+        player_velocity_y increases by gravity
+        
+        # Jump
+        when key_pressed("SPACE") and on_ground(player):
+            player_velocity_y = -jump_power
+        
+        # Move player
+        move_sprite(player, get_x(player), get_y(player) + player_velocity_y)
+        
+        # Check ground collision
+        when touches_ground(player):
+            player_velocity_y = 0
+        
+        update_screen()
+
+show ""
+show "Game examples complete!"
+show "Ready to build awesome games!"

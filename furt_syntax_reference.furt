@@ -1,0 +1,411 @@
+# ========================================
+# 📚 FURT Syntax Reference Guide
+# ========================================
+# Quick reference untuk semua syntax FURT
+
+# ========================================
+# 🔤 VARIABLES - Multiple Styles
+# ========================================
+
+# JavaScript style
+let name = "Alice"
+const PI = 3.14159
+
+# Python style
+age = 25
+score = 100
+
+# FURT natural language style
+my_name becomes "Bob"
+player_health starts at 100
+max_speed stays at 50
+
+# Type hints (not yet implemented - coming soon!)
+# username: string = "user123"
+# level: number = 1
+# is_playing: boolean = true
+
+# For now, use regular assignments:
+username = "user123"
+level = 1
+is_playing = true
+
+# ========================================
+# 🧮 MATH OPERATIONS
+# ========================================
+
+# Basic arithmetic
+result = 10 + 5     # Addition
+result = 10 - 3     # Subtraction  
+result = 10 * 2     # Multiplication
+result = 10 / 2     # Division
+result = 10 ** 2    # Power
+result = 10 % 3     # Modulo
+
+# Update operations (FURT style)
+score increases by 10
+health decreases by 5
+speed multiplies by 2
+time divides by 2
+
+# Comparison operators
+age >= 18           # Greater than or equal
+score > 100         # Greater than
+level < 10          # Less than
+health <= 0         # Less than or equal
+name == "Alice"     # Equal
+status != "dead"    # Not equal
+
+# ========================================
+# ⚖️ CONDITIONS - Multiple Styles
+# ========================================
+
+# Traditional if-else
+if age >= 18:
+    show "Adult"
+else:
+    show "Minor"
+
+# FURT natural language
+when age is at least 18:
+    show "You can vote"
+
+when score is more than 100:
+    show "High score!"
+
+when health is less than 20:
+    show "Low health warning!"
+
+when name is "Alice":
+    show "Hello Alice!"
+
+# Unless (reverse condition)
+unless game_over:
+    continue_playing()
+
+unless health is 0:
+    show "Still alive"
+
+# Multiple conditions
+when age >= 18 and score > 50:
+    show "Qualified!"
+
+when health <= 0 or time_up:
+    show "Game over!"
+
+# ========================================
+# 🔄 LOOPS - Multiple Styles
+# ========================================
+
+# For loop with range
+for i in range(5):
+    show "Count:", i
+
+for i in range(1, 10):
+    show "Number:", i
+
+# FURT natural style
+repeat 5 times:
+    show "Hello!"
+
+repeat 10 times:
+    score increases by 1
+
+# Count style loop
+count from 1 to 10:
+    show "Counting:", counter
+
+# count from 0 to 100 by 10:  # Step syntax not yet implemented
+#     show "Skip counting:", counter
+
+# For now, use regular range:
+for i in range(0, 101, 10):
+    show "Skip counting:", i
+
+# While loop
+while health > 0:
+    play_game()
+
+while not game_over:
+    update_game()
+
+# Forever loop
+repeat forever:
+    game_loop()
+
+# ========================================
+# 📋 LISTS AND ARRAYS
+# ========================================
+
+# Create lists
+fruits = ["apple", "banana", "orange"]
+numbers = [1, 2, 3, 4, 5]
+mixed = ["hello", 42, true, 3.14]
+empty = []
+
+# Access elements
+first_fruit = fruits[0]
+last_number = numbers[-1]
+
+# List operations
+add "grape" to fruits
+remove "banana" from fruits
+add 6 to numbers
+
+# List functions
+length = len(fruits)
+size = size of numbers
+
+# List iteration
+for fruit in fruits:
+    show "Fruit:", fruit
+
+for i in range(len(numbers)):
+    show "Index", i, "=", numbers[i]
+
+# ========================================
+# 🔧 FUNCTIONS - Multiple Styles
+# ========================================
+
+# Python style
+def calculate_area(width, height):
+    return width * height
+
+def greet(name):
+    print("Hello, " + name)
+
+# FURT friendly style
+to say_hello to someone:
+    show "Hello, " + someone + "!"
+
+to add_numbers x and y:
+    give back x + y
+
+to calculate_distance from_x from_y to_x to_y:
+    dx = to_x - from_x
+    dy = to_y - from_y
+    give back sqrt(dx * dx + dy * dy)
+
+# Function calls
+area = calculate_area(10, 5)
+greet("World")
+say_hello("Alice")
+sum = add_numbers(10, 20)
+
+# ========================================
+# 🔤 STRINGS
+# ========================================
+
+# String creation
+message = "Hello World"
+name = 'Alice'
+multiline = """This is a
+multi-line string"""
+
+# String operations
+full_name = first_name + " " + last_name
+greeting = "Hello, " + name + "!"
+
+# String functions
+length = len(message)
+upper_case = upper(message)
+lower_case = lower(message)
+
+# String methods (if supported)
+words = split(message, " ")
+joined = join(words, "-")
+
+# ========================================
+# 🎨 GRAPHICS SYNTAX
+# ========================================
+
+use graphics
+
+# Window management
+make_window 800 600
+set_title "My Game"
+
+# Background
+set background to blue
+set background to "#FF0000"
+clear_screen()
+
+# Drawing shapes
+draw_circle 100 100 50
+draw_rectangle 200 150 100 80
+draw_square 300 200 60
+draw_line 50 50 750 550
+
+# Colors
+set_color "red"
+set_color "#00FF00"
+set_color rgb(255, 0, 0)
+
+# Text
+write "Hello World!" at 100 50
+write text "Score: " + str(score) at 10 10
+
+# Mouse and keyboard
+x = mouse_x()
+y = mouse_y()
+clicked = mouse_clicked()
+
+# ========================================
+# 🎵 SOUND SYNTAX
+# ========================================
+
+use sound
+
+# Play sounds
+play_sound "beep.wav"
+play_music "background.mp3"
+play_tone 440 1000  # Frequency, duration
+
+# Volume control
+set_volume 0.8
+set_music_volume 0.5
+
+# Sound effects
+play_effect "explosion"
+play_effect "coin_collect"
+
+# ========================================
+# 📁 FILE OPERATIONS
+# ========================================
+
+use file
+
+# File reading/writing
+content = read_file "data.txt"
+write_file "output.txt" "Hello World"
+
+# File checks
+if file_exists "config.txt":
+    load_config()
+
+# JSON operations
+data = {"name": "Alice", "score": 100}
+save_json "save.json" data
+loaded = load_json "save.json"
+
+# ========================================
+# ⏰ TIME AND TIMING
+# ========================================
+
+use time
+
+# Get current time
+now = current_time()
+today = current_date()
+
+# Delays
+wait 2 seconds
+wait 500 milliseconds
+
+# Timers
+after 5 seconds:
+    show "Timer finished!"
+
+every 1 second:
+    update_clock()
+
+# ========================================
+# 🌐 WEB OPERATIONS
+# ========================================
+
+use web
+
+# HTTP requests
+response = get_url "https://api.example.com"
+data = post_data "https://api.example.com" {"key": "value"}
+
+# Simple server
+start_server on port 8080:
+    route "/hello":
+        return "Hello World!"
+
+# ========================================
+# 🔄 ERROR HANDLING
+# ========================================
+
+# Try-catch style
+attempt:
+    result = risky_operation()
+if that fails:
+    show "Something went wrong!"
+
+# With error details
+attempt:
+    divide_by_zero = 10 / 0
+if that fails as error:
+    show "Error:", error
+
+# ========================================
+# 💬 COMMENTS
+# ========================================
+
+# Single line comment
+
+"""
+Multi-line comment
+Can span multiple lines
+Good for documentation
+"""
+
+# Inline comment
+score = 100  # Player's current score
+
+# ========================================
+# 🎯 ADVANCED FEATURES
+# ========================================
+
+# Async operations
+wait for data from "api.com":
+    process(data)
+
+# Testing
+test "math works":
+    expect 2 + 2 to equal 4
+
+# Type annotations
+# Function with type hints (not yet implemented)
+# function calculate(x: number, y: number) -> number:
+#     return x + y
+
+# For now, use regular function syntax:
+to calculate x y:
+    give back x + y
+
+# Pattern matching (future feature)
+match value:
+    case 1:
+        show "One"
+    case 2:
+        show "Two"
+    default:
+        show "Other"
+
+# ========================================
+# 📖 STYLE GUIDE
+# ========================================
+
+# Good variable names
+player_health = 100     # Clear and descriptive
+enemy_count = 5         # Uses underscore
+is_game_over = false    # Boolean starts with 'is'
+
+# Good function names
+to calculate_damage from_weapon:
+    # Function does one thing clearly
+
+# Good comments
+# Calculate player damage based on weapon type
+damage = base_damage * weapon_multiplier
+
+# ========================================
+# END OF SYNTAX REFERENCE
+# ========================================
+
+show "FURT Syntax Reference Complete!"
+show "Use this as a quick reference guide."
+show "Happy coding! 🚀"
